@@ -32,12 +32,13 @@ test("server-renders Artem Bazhutin portfolio", async () => {
   assert.match(html, /<title>Артём Бажутин — графический и моушен-дизайнер<\/title>/i);
   assert.match(html, /Дизайн,/);
   assert.match(html, /который/);
-  assert.match(html, /src="\/artem-bazhutin-portrait\.png"/);
+  assert.match(html, /src="\/artem-bazhutin-portrait-ava2\.jpg"/);
   assert.match(html, /alt="Портрет Артёма Бажутина"/);
   assert.doesNotMatch(html, />ART<|>MOTION<|>IDENTITY</);
   assert.match(html, /Reloc/);
   assert.match(html, /FunPay/);
-  assert.match(html, /ALPHA HOOKAH/);
+  assert.match(html, /Alpha Hookah/);
+  assert.doesNotMatch(html, /client-marquee/);
   assert.match(html, /fonts\.googleapis\.com\/css2/);
   assert.match(html, /Fira\+Sans\+Extra\+Condensed/);
   assert.match(html, /family=Roboto/);
@@ -95,7 +96,9 @@ for (const project of [
     assert.match(html, /autoplay=1/);
     assert.match(html, /loop=1/);
     assert.match(html, /muted=1/);
-    assert.match(html, new RegExp(`>${project.client}<`));
+    assert.match(html, /class="case-intro shell"/);
+    assert.match(html, new RegExp(`${project.client}(?:<!-- -->)? /`));
+    assert.doesNotMatch(html, /Selected motion works|>PLAY<|>REPEAT</i);
     assert.doesNotMatch(html, /og:image|twitter:image|\/og\.png/i);
   });
 }

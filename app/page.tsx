@@ -105,10 +105,10 @@ export default function Home() {
         <div className="hero-poster hero-portrait">
           <img
             className="hero-portrait-image"
-            src="/artem-bazhutin-portrait.png"
+            src="/artem-bazhutin-portrait-ava2.jpg"
             alt="Портрет Артёма Бажутина"
-            width="806"
-            height="1138"
+            width="1484"
+            height="2270"
           />
         </div>
 
@@ -141,19 +141,21 @@ export default function Home() {
         <div className="shell about-grid">
           <div className="about-lead">
             <p>
-              Я начал заниматься дизайном в Екатеринбурге и пять лет работал
-              в креативном агентстве. Там научился видеть не отдельный макет,
-              а всю коммуникацию бренда — от ежедневного контента до айдентики.
+              Я начал заниматься дизайном в Екатеринбурге, а затем пять лет
+              работал в петербургском креативном агентстве. Там научился видеть
+              не отдельный макет, а всю коммуникацию бренда — от ежедневного
+              контента до айдентики.
             </p>
           </div>
 
           <div className="career-list">
             <article>
               <span>2019—2024</span>
-              <h3>Креативное агентство</h3>
+              <h3>V-agency / Санкт-Петербург</h3>
               <p>
-                Соцсети, реклама, UGC-контент, монтаж, баннеры и анимация.
-                Создание айдентики и точная работа по брендбукам компаний.
+                Соцсети, реклама, UGC-контент, монтаж, баннеры, анимация и
+                айдентика. Проекты для Alpha Hookah, MISHA, KORESS и «Теремка»;
+                точная работа по брендбукам компаний.
               </p>
             </article>
             <article>
@@ -167,16 +169,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="client-marquee" aria-label="Опыт работы с брендами">
-          <div>
-            <span>ALPHA HOOKAH</span><i>✦</i>
-            <span>MISHA</span><i>✦</i>
-            <span>КОРУС</span><i>✦</i>
-            <span>ТЕРЕМОК</span><i>✦</i>
-            <span>RELOC</span><i>✦</i>
-            <span>FUNPAY</span>
-          </div>
-        </div>
       </section>
 
       <section className="work-section shell" id="work" aria-labelledby="work-title">

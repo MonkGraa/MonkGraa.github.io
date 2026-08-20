@@ -14,29 +14,14 @@ export function CasePage({ project }: { project: PortfolioCase }) {
         <span className="case-count">{project.number} / 02</span>
       </header>
 
-      <section className="case-hero shell" aria-labelledby="case-title">
-        <p className="case-eyebrow">{project.eyebrow}</p>
-        <h1 id="case-title">{project.client}</h1>
-        <div className="case-hero-bottom">
-          <h2>{project.title}</h2>
+      <section className="case-intro shell" aria-labelledby="case-title">
+        <p className="case-eyebrow">
+          {project.client} / {project.eyebrow}
+        </p>
+        <div className="case-intro-copy">
+          <h1 id="case-title">{project.title}</h1>
           <p>{project.summary}</p>
         </div>
-      </section>
-
-      <section className="case-showreel" aria-label={`Подборка работ ${project.client}`}>
-        <div className="case-showreel-grid" aria-hidden="true" />
-        <span className="showreel-kicker">Selected motion works</span>
-        <div className="showreel-title" aria-hidden="true">
-          <span>{project.client}</span>
-          <span>PLAY</span>
-          <span>REPEAT</span>
-        </div>
-        <div className="showreel-shape shape-one" aria-hidden="true" />
-        <div className="showreel-shape shape-two" aria-hidden="true" />
-        <a className="showreel-link" href="#videos">
-          <span>Смотреть ролики</span>
-          <strong>Play ↓</strong>
-        </a>
       </section>
 
       <section className="case-videos" id="videos" aria-labelledby="videos-title">
