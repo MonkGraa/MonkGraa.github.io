@@ -32,6 +32,9 @@ test("server-renders Artem Bazhutin portfolio", async () => {
   assert.match(html, /<title>Артём Бажутин — графический и моушен-дизайнер<\/title>/i);
   assert.match(html, /Дизайн,/);
   assert.match(html, /который/);
+  assert.match(html, /src="\/artem-bazhutin-portrait\.png"/);
+  assert.match(html, /alt="Портрет Артёма Бажутина"/);
+  assert.doesNotMatch(html, />ART<|>MOTION<|>IDENTITY</);
   assert.match(html, /Reloc/);
   assert.match(html, /FunPay/);
   assert.match(html, /ALPHA HOOKAH/);

@@ -209,6 +209,19 @@ h1 em {
   isolation: isolate;
 }
 
+.hero-poster.hero-portrait {
+  padding: 0;
+  background: #12383a;
+}
+
+.hero-portrait-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
 .poster-grid {
   position: absolute;
   inset: 0;

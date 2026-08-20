@@ -102,17 +102,14 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="hero-poster" aria-label="Направления работы">
-          <div className="poster-grid" aria-hidden="true" />
-          <p className="poster-kicker">Graphic &amp; motion designer</p>
-          <div className="poster-type">
-            <span>ART</span>
-            <span>MOTION</span>
-            <span>IDENTITY</span>
-          </div>
-          <p className="poster-year">2019—2026</p>
-          <div className="orbit orbit-one" aria-hidden="true" />
-          <div className="orbit orbit-two" aria-hidden="true" />
+        <div className="hero-poster hero-portrait">
+          <img
+            className="hero-portrait-image"
+            src="/artem-bazhutin-portrait.png"
+            alt="Портрет Артёма Бажутина"
+            width="806"
+            height="1138"
+          />
         </div>
 
         <div className="hero-meta">
