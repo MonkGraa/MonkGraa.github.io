@@ -2,18 +2,25 @@ import type { Metadata } from "next";
 import { CasePage } from "../case-page";
 import { relocCase } from "../case-data";
 
+export const dynamic = "force-static";
+
+const title = `${relocCase.client} — кейс Артёма Бажутина`;
+
 export const metadata: Metadata = {
-  title: `${relocCase.client} — кейс Артёма Бажутина`,
+  title,
   description: relocCase.metaDescription,
   openGraph: {
-    title: `${relocCase.client} — кейс Артёма Бажутина`,
+    title,
     description: relocCase.metaDescription,
-    images: [],
+    images: [
+      { url: relocCase.coverImage, width: 1900, height: 1100, alt: relocCase.coverAlt },
+    ],
   },
   twitter: {
-    title: `${relocCase.client} — кейс Артёма Бажутина`,
+    card: "summary_large_image",
+    title,
     description: relocCase.metaDescription,
-    images: [],
+    images: [relocCase.coverImage],
   },
 };
 

@@ -2,18 +2,25 @@ import type { Metadata } from "next";
 import { CasePage } from "../case-page";
 import { funpayCase } from "../case-data";
 
+export const dynamic = "force-static";
+
+const title = `${funpayCase.client} — кейс Артёма Бажутина`;
+
 export const metadata: Metadata = {
-  title: `${funpayCase.client} — кейс Артёма Бажутина`,
+  title,
   description: funpayCase.metaDescription,
   openGraph: {
-    title: `${funpayCase.client} — кейс Артёма Бажутина`,
+    title,
     description: funpayCase.metaDescription,
-    images: [],
+    images: [
+      { url: funpayCase.coverImage, width: 1900, height: 1100, alt: funpayCase.coverAlt },
+    ],
   },
   twitter: {
-    title: `${funpayCase.client} — кейс Артёма Бажутина`,
+    card: "summary_large_image",
+    title,
     description: funpayCase.metaDescription,
-    images: [],
+    images: [funpayCase.coverImage],
   },
 };
 
