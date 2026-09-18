@@ -9,6 +9,10 @@ const title = `${funpayCase.client} — кейс Артёма Бажутина`;
 export const metadata: Metadata = {
   title,
   description: funpayCase.metaDescription,
+  alternates: {
+    canonical: "/cases/funpay/",
+    languages: { "ru-RU": "/cases/funpay/", "en-US": "/en/cases/funpay/" },
+  },
   openGraph: {
     title,
     description: funpayCase.metaDescription,

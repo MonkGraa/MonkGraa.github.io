@@ -124,7 +124,6 @@ a {
 
 .brand-name,
 .site-nav,
-.availability,
 .eyebrow,
 .poster-kicker,
 .poster-year,
@@ -147,7 +146,7 @@ a {
 }
 
 .brand-name,
-.availability {
+.language-switcher {
   font-size: var(--type-ui);
 }
 
@@ -163,20 +162,42 @@ a {
   color: var(--acid);
 }
 
-.availability {
+.language-switcher {
   justify-self: end;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
 }
 
-.availability::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--acid);
-  box-shadow: 0 0 0 4px rgba(51, 130, 249, 0.18);
+.language-switcher svg {
+  width: 19px;
+  height: 19px;
+  margin-right: 3px;
+}
+
+.language-switcher a {
+  padding: 8px 2px;
+  transition: color 180ms ease;
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus-visible,
+.language-switcher a[aria-current="page"] {
+  color: var(--brand-blue);
+}
+
+.language-switcher a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.case-cover .language-switcher a[aria-current="page"],
+.case-cover .language-switcher a:hover,
+.case-cover .language-switcher a:focus-visible {
+  color: var(--paper);
 }
 
 .hero {
@@ -1101,8 +1122,14 @@ h1 em {
 }
 
 .case-count {
-  justify-self: end;
   color: rgba(10, 4, 26, 0.58);
+}
+
+.case-header-end {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 .case-intro {
@@ -1766,10 +1793,6 @@ h1 em {
     display: none;
   }
 
-  .availability {
-    font-size: var(--type-label);
-  }
-
   .hero {
     min-height: auto;
     gap: 40px;
@@ -1938,6 +1961,10 @@ h1 em {
   .case-header {
     min-height: 72px;
     grid-template-columns: 1fr auto;
+  }
+
+  .case-header-end {
+    gap: var(--space-3);
   }
 
   .case-intro {

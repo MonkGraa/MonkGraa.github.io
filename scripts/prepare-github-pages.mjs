@@ -1,9 +1,16 @@
-import { copyFile, mkdir } from "node:fs/promises";
+import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 
-const routes = ["cases/reloc", "cases/funpay"];
+const routes = ["cases/reloc", "cases/funpay", "en", "en/cases/reloc", "en/cases/funpay"];
 
 for (const route of routes) {
   const routeDirectory = `dist/client/${route}`;
   await mkdir(routeDirectory, { recursive: true });
-  await copyFile(`dist/client/${route}.html`, `${routeDirectory}/index.html`);
+  const source = `dist/client/${route}.html`;
+  const destination = `${routeDirectory}/index.html`;
+  if (route.startsWith("en")) {
+    const html = await readFile(source, "utf8");
+    await writeFile(destination, html.replace('<html lang="ru">', '<html lang="en">'));
+  } else {
+    await copyFile(source, destination);
+  }
 }

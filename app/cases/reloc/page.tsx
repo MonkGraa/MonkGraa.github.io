@@ -9,6 +9,10 @@ const title = `${relocCase.client} — кейс Артёма Бажутина`;
 export const metadata: Metadata = {
   title,
   description: relocCase.metaDescription,
+  alternates: {
+    canonical: "/cases/reloc/",
+    languages: { "ru-RU": "/cases/reloc/", "en-US": "/en/cases/reloc/" },
+  },
   openGraph: {
     title,
     description: relocCase.metaDescription,

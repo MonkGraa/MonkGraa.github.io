@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFile } from "node:fs/promises";
 
 async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -51,6 +52,11 @@ test("server-renders Artem Bazhutin portfolio", async () => {
   assert.match(html, /Reloc/);
   assert.match(html, /FunPay/);
   assert.match(html, /Alpha Hookah/);
+  assert.match(html, /«Теремок»/);
+  assert.doesNotMatch(html, /Теремка/);
+  assert.match(html, /aria-label="Выбор языка"/);
+  assert.match(html, /href="\/en\/"[^>]*aria-label="English"/);
+  assert.doesNotMatch(html, /class="availability"/);
   assert.doesNotMatch(html, /client-marquee/);
   assert.match(html, /fonts\.googleapis\.com\/css2/);
   assert.match(html, /family=Roboto/);
@@ -152,3 +158,42 @@ for (const project of [
     assert.doesNotMatch(html, /\/og\.png/i);
   });
 }
+
+test("English homepage and case studies are translated and linked together", async () => {
+  const homeResponse = await render("/en");
+  assert.equal(homeResponse.status, 200);
+  const home = await homeResponse.text();
+  assert.match(home, /<main id="top" lang="en">/);
+  assert.match(home, /<title>Artem Bazhutin — graphic and motion designer<\/title>/);
+  assert.match(home, /Graphic &amp;/);
+  assert.match(home, /Work<br\/><em>experience<\/em>/);
+  assert.match(home, /Teremok/);
+  assert.match(home, /href="\/en\/cases\/reloc"/);
+  assert.match(home, /href="\/en\/cases\/funpay"/);
+  assert.match(home, /aria-label="Choose language"/);
+  assert.match(home, /href="\/"[^>]*aria-label="Русский"/);
+  assert.doesNotMatch(home, /Теремка|class="availability"/);
+
+  for (const project of [
+    { slug: "reloc", client: "Reloc", heading: "Instructions" },
+    { slug: "funpay", client: "FunPay", heading: "YouTube motion graphics" },
+  ]) {
+    const response = await render(`/en/cases/${project.slug}`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, new RegExp(`<title>${project.client} — case study by Artem Bazhutin<\\/title>`));
+    assert.match(html, /lang="en"/);
+    assert.match(html, new RegExp(project.heading));
+    assert.match(html, /All projects/);
+    assert.match(html, /Next project/);
+    assert.match(html, /href="\/en\/#work"/);
+    assert.match(html, new RegExp(`href="/cases/${project.slug}"`));
+  }
+});
+
+test("GitHub Pages export marks English documents as English", async () => {
+  for (const path of ["en", "en/cases/reloc", "en/cases/funpay"]) {
+    const html = await readFile(new URL(`../dist/client/${path}/index.html`, import.meta.url), "utf8");
+    assert.match(html, /<html lang="en">/);
+  }
+});

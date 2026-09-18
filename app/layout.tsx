@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://monkgraa.github.io"),
   title: siteTitle,
   description: siteDescription,
+  alternates: {
+    canonical: "/",
+    languages: { "ru-RU": "/", "en-US": "/en/" },
+  },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
