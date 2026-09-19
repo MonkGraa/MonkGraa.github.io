@@ -50,6 +50,24 @@ for (const locale of ["ru", "en"]) {
       } else if (slug === "alanbase") {
         for (let i = 1; i <= 9; i++)
           assert.ok(html.includes(`/work/alanbase/0${i}.webp`));
+      } else if (slug === "reloc") {
+        assert.doesNotMatch(html, /<iframe\b|class="vimeo-launch"/);
+        for (const name of [
+          "instructions",
+          "reloc-bot",
+          "telegram-bot",
+          "safari",
+          "chrome",
+          "yandex",
+          "reloc-3d",
+          "notification",
+        ])
+          assert.ok(html.includes(`/work/reloc/${name}.mp4`));
+        assert.equal((html.match(/<video\b/g) ?? []).length, 8);
+        assert.equal((html.match(/autoplay=""/gi) ?? []).length, 8);
+        assert.equal((html.match(/muted=""/gi) ?? []).length, 8);
+        assert.equal((html.match(/loop=""/gi) ?? []).length, 8);
+        assert.equal((html.match(/playsinline=""/gi) ?? []).length, 8);
       } else if (slug === "funpay") {
         assert.doesNotMatch(html, /<iframe\b|class="vimeo-launch"/);
         for (const name of ["opener", "outro", "avatar", "ad-01", "ad-02"])
@@ -59,10 +77,6 @@ for (const locale of ["ru", "en"]) {
         assert.equal((html.match(/muted=""/gi) ?? []).length, 5);
         assert.equal((html.match(/loop=""/gi) ?? []).length, 5);
         assert.equal((html.match(/playsinline=""/gi) ?? []).length, 5);
-      } else {
-        assert.doesNotMatch(html, /<iframe\b/);
-        assert.match(html, /class="vimeo-launch"/);
-        assert.match(html, /work\/vimeo\//);
       }
     });
   }

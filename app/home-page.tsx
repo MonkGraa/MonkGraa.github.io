@@ -344,7 +344,6 @@ export function HomePage({ locale }: { locale: Locale }) {
             { name: "Premiere Pro", logo: "premiere-pro" },
             { name: "Blender", logo: "blender" },
             { name: "ComfyUI", logo: "comfy" },
-            { name: "Claude", logo: "claude" },
             { name: "Codex", logo: "openai" },
             { name: "GPT Image", logo: "openai" },
           ].map((tool) => (
@@ -392,14 +391,13 @@ export function HomePage({ locale }: { locale: Locale }) {
           </article>
           <article>
             <div className="pf-tool-identity">
-              <img src="/logos/claude.svg" alt="" width="36" height="36" />
               <img
                 src="/logos/openai.svg"
                 alt="OpenAI"
                 width="36"
                 height="36"
               />
-              <h3>Claude / Codex</h3>
+              <h3>Codex</h3>
             </div>
             <p>
               {t(
