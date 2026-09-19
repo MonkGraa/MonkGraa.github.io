@@ -3,6 +3,8 @@ export type CaseVideo = {
   title: string;
   caption: string;
   ratio: "landscape" | "square" | "portrait";
+  src?: string;
+  poster?: string;
 };
 
 export type CaseVideoGroup = {
@@ -209,18 +211,24 @@ export const funpayCase: PortfolioCase = {
           title: "Funblog Opener",
           caption: "Открывающая заставка выпуска",
           ratio: "landscape",
+          src: "/work/funpay/opener.mp4",
+          poster: "/work/vimeo/1219856666.jpg",
         },
         {
           id: "1219857205",
           title: "Outro",
           caption: "Вертикальный финал ролика",
           ratio: "portrait",
+          src: "/work/funpay/outro.mp4",
+          poster: "/work/vimeo/1219857205.jpg",
         },
         {
           id: "1219856664",
           title: "FunPay Avatar",
           caption: "Анимация для аватара",
           ratio: "square",
+          src: "/work/funpay/avatar.mp4",
+          poster: "/work/vimeo/1219856664.jpg",
         },
         {
           id: "1219856665",
@@ -228,6 +236,8 @@ export const funpayCase: PortfolioCase = {
           caption:
             "Анимированная рекламная вставка для роликов с говорящей головой для YouTube и TikTok.",
           ratio: "square",
+          src: "/work/funpay/ad-01.mp4",
+          poster: "/work/vimeo/1219856665.jpg",
         },
         {
           id: "1219856667",
@@ -235,6 +245,8 @@ export const funpayCase: PortfolioCase = {
           caption:
             "Второй вариант рекламной вставки для интеграций в ролики с говорящей головой.",
           ratio: "square",
+          src: "/work/funpay/ad-02.mp4",
+          poster: "/work/vimeo/1219856667.jpg",
         },
       ],
     },

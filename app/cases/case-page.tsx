@@ -85,11 +85,25 @@ export function CasePage({
                   key={video.id}
                 >
                   <div className="video-player">
-                    <VimeoPlayer
-                      id={video.id}
-                      title={`${video.title} — ${project.client}`}
-                      locale={locale}
-                    />
+                    {video.src ? (
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        poster={video.poster}
+                        aria-label={`${video.title} — ${project.client}`}
+                      >
+                        <source src={video.src} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <VimeoPlayer
+                        id={video.id}
+                        title={`${video.title} — ${project.client}`}
+                        locale={locale}
+                      />
+                    )}
                   </div>
                   <div className="video-caption">
                     <span>{video.title}</span>
