@@ -28,9 +28,7 @@ export function CasePage({
             ? en
               ? "Guides & 3D ads."
               : "Инструкции и 3D-реклама."
-            : en
-              ? "YouTube in motion."
-              : "YouTube в движении."}
+            : "YouTube"}
         </h1>
         <p className="pf-case-summary">{format(project.summary)}</p>
       </section>

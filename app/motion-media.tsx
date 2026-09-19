@@ -8,6 +8,7 @@ const heroClips = [
     src: "/work/saas/preview.mp4",
     poster: "/work/saas/omindex-cover.jpg",
     slug: "saas",
+    startAt: 0,
     label: { ru: "SaaS-ролик", en: "SaaS product film" },
   },
   {
@@ -15,6 +16,7 @@ const heroClips = [
     src: "/work/reel/reloc.mp4",
     poster: "/work/vimeo/1219851137.jpg",
     slug: "reloc",
+    startAt: 4,
     label: { ru: "Продуктовая инструкция", en: "Product walkthrough" },
   },
   {
@@ -22,35 +24,14 @@ const heroClips = [
     src: "/work/reel/funpay.mp4",
     poster: "/work/vimeo/1219856666.jpg",
     slug: "funpay",
+    startAt: 0,
     label: { ru: "YouTube-графика", en: "YouTube motion" },
-  },
-  {
-    name: "Теремок",
-    src: "/work/teremok/preview.mp4",
-    poster: "/work/teremok/cover.jpg",
-    slug: "teremok",
-    label: { ru: "Анимация для соцсетей", en: "Social media animation" },
-  },
-  {
-    name: "Blackbox",
-    src: "/work/blackbox/preview.mp4",
-    poster: "/work/blackbox/cover.jpg",
-    slug: "blackbox",
-    label: { ru: "Ролик об эдамаме", en: "Edamame film" },
-  },
-  {
-    name: "Mekong",
-    src: "/work/mekong/preview.mp4",
-    poster: "/work/mekong/cover.jpg",
-    slug: "mekong",
-    label: { ru: "Проморолик ресторана", en: "Restaurant promo" },
   },
 ];
 
 export function MotionPreview({ locale }: { locale: "ru" | "en" }) {
   const [active, setActive] = useState(0);
   const clip = heroClips[active];
-  const clientName = (name: string) => locale === "en" && name === "Теремок" ? "Teremok" : name;
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const manuallyPaused = useRef(false);
@@ -101,13 +82,17 @@ export function MotionPreview({ locale }: { locale: "ru" | "en" }) {
           playsInline
           preload="none"
           poster={clip.poster}
+          onLoadedMetadata={(event) => {
+            if (clip.startAt > 0 && event.currentTarget.duration > clip.startAt)
+              event.currentTarget.currentTime = clip.startAt;
+          }}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
           onEnded={() => {
             if (!manuallyPaused.current)
               setActive((index) => (index + 1) % heroClips.length);
           }}
-          aria-label={`${clientName(clip.name)} — ${clip.label[locale]}`}
+          aria-label={`${clip.name} — ${clip.label[locale]}`}
         >
           <source src={clip.src} type="video/mp4" />
         </video>
@@ -133,7 +118,7 @@ export function MotionPreview({ locale }: { locale: "ru" | "en" }) {
       </div>
       <div className="pf-feature-caption">
         <span>
-          {clientName(clip.name)} / {clip.label[locale]}
+          {clip.name} / {clip.label[locale]}
         </span>
         <a href={`${locale === "en" ? "/en" : ""}/cases/${clip.slug}/`}>
           {locale === "ru" ? "Смотреть кейс" : "View project"} ↗
@@ -151,7 +136,7 @@ export function MotionPreview({ locale }: { locale: "ru" | "en" }) {
             onClick={() => setActive(index)}
           >
             <span className="hero-reel-marker" aria-hidden="true" />
-            <span>{clientName(item.name)}</span>
+            <span>{item.name}</span>
           </button>
         ))}
       </div>

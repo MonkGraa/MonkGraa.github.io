@@ -2380,11 +2380,11 @@ h1 em {
 
 .pf-toolkit { padding-top: 48px; }
 .pf-toolkit h2 { margin: 0 0 20px; font-size: 18px; font-weight: 400; color: #b7b7c5; }
-.pf-toolkit-list { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 20px 12px; list-style: none; margin: 0; padding: 22px 0; border-block: 1px solid #ffffff25; }
-.pf-toolkit-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 1.4; }
+.pf-toolkit-list { display: flex; align-items: center; justify-content: space-between; gap: 24px; list-style: none; margin: 0; padding: 22px 0; border-block: 1px solid #ffffff25; }
+.pf-toolkit-list li { display: grid; grid-template-columns: 28px max-content; align-items: center; gap: 12px; min-width: 0; font-size: 14px; line-height: 1.4; }
 .pf-toolkit-list img { width: 28px; height: 28px; flex: 0 0 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: .9; }
-@media (max-width: 1150px) { .pf-toolkit-list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .pf-toolkit { padding-top: 32px; } .pf-toolkit-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; } }
+@media (max-width: 1150px) { .pf-toolkit-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); justify-content: initial; gap: 20px 24px; } }
+@media (max-width: 600px) { .pf-toolkit { padding-top: 32px; } .pf-toolkit-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; } .pf-toolkit-list li { grid-template-columns: 28px minmax(0, 1fr); } }
 
 .pf-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; flex-shrink: 0; }
 .pf-scroll-cue { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: #f0f0eb; font-size: 14px; text-decoration: none; }

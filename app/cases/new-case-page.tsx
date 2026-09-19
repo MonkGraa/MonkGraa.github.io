@@ -41,7 +41,7 @@ export function NewCasePage({
         <h1>
           {alanbase
             ? t("Графика\nдля Alanbase.", "Graphics\nfor Alanbase.")
-            : t("OMIndex\nв движении.", "OMIndex\nin motion.")}
+            : "OMIndex"}
         </h1>
         <p className="pf-case-summary">
           {alanbase

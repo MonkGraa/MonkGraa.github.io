@@ -1,7 +1,7 @@
 export const foodCases = {
   teremok: {
     name: ["Теремок", "Teremok"],
-    title: ["Новости бренда в движении", "Brand news in motion"],
+    title: ["Новости бренда", "Brand news"],
     summary: ["Анимационный ролик для «Теремка»: новость о 36 кондитерских в зимнем оформлении бренда.", "An animated film for Teremok, announcing 36 pastry shops with the brand’s winter graphics."],
     detail: ["Красный фон, снежинки и крупные цифры собирают короткое сообщение в вертикальный ролик. Текст появляется последовательно, а логотип остаётся частью композиции.", "A red background, snowflakes and large numbers carry a short announcement in a vertical format. Text appears in sequence, with the logo integrated into the composition."],
     tags: "Motion · Social · 9:16",

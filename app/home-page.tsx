@@ -383,11 +383,11 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
             <p>
               {t(
-                "Собираю нодовые схемы для генерации изображений, видео и 3D. Использую референсы, меняю параметры и повторяю генерацию, пока результат не подойдёт под нужный стиль и задачу.",
-                "I build node-based workflows for generating images, video and 3D. I use references, adjust settings and repeat generation until the output fits the style and brief.",
+                "Собираю нодовые схемы для генерации изображений. Использую референсы, меняю параметры и повторяю генерацию, пока результат не подойдёт под нужный стиль и задачу.",
+                "I build node-based workflows for image generation. I use references, adjust settings and repeat generation until the output fits the style and brief.",
               )}
             </p>
-            <span>Image / Video / 3D</span>
+            <span>Image generation</span>
           </article>
           <article>
             <div className="pf-tool-identity">

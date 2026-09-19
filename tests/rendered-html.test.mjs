@@ -3,6 +3,7 @@ import test from "node:test";
 import { readFile, access } from "node:fs/promises";
 
 const root = new URL("../dist/client/", import.meta.url);
+const sourceRoot = new URL("../", import.meta.url);
 const read = (route) =>
   readFile(new URL(route ? `${route}/index.html` : "index.html", root), "utf8");
 
@@ -26,6 +27,8 @@ for (const locale of ["ru", "en"]) {
     assert.match(html, /Manrope/);
     assert.match(html, /Onest/);
     assert.match(html, /logos\/v-agency\.svg/);
+    assert.match(html, /Image generation/);
+    assert.doesNotMatch(html, /Image \/ Video \/ 3D/);
     assert.doesNotMatch(html, /<h[23][^>]*>(?:Фриланс|Freelance|V-agency)<\/h/);
     assert.doesNotMatch(html, /<iframe\b/);
   });
@@ -40,6 +43,7 @@ for (const locale of ["ru", "en"]) {
       assert.match(html, /id="case-contact"/);
       assert.match(html, /<title>[^<]+<\/title>/);
       assert.match(html, /rel="canonical"/);
+      assert.doesNotMatch(html, /(?:в движении|in motion)/i);
       if (slug === "saas") {
         assert.match(html, /<video[^>]*controls/);
         assert.match(html, /work\/saas\/film.mp4/);
@@ -125,4 +129,16 @@ test("exported local links and media resolve to files", async () => {
       );
     }
   }
+});
+
+test("homepage preview keeps three selected clips and starts Reloc at four seconds", async () => {
+  const source = await readFile(
+    new URL("app/motion-media.tsx", sourceRoot),
+    "utf8",
+  );
+  for (const name of ["OMIndex", "Reloc", "FunPay"])
+    assert.match(source, new RegExp(`name: "${name}"`));
+  for (const slug of ["teremok", "blackbox", "mekong"])
+    assert.doesNotMatch(source, new RegExp(`/work/${slug}/preview\\.mp4`));
+  assert.match(source, /name: "Reloc"[\s\S]*?startAt: 4/);
 });
