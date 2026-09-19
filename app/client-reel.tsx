@@ -9,6 +9,7 @@ const clients = [
   { name: "MISHA", image: "misha.png" },
   { name: "KORESS", image: "koress.png" },
   { name: "Теремок", image: "teremok.svg" },
+  { name: "V Agency", image: "v-agency.svg" },
 ];
 
 export function ClientReel({

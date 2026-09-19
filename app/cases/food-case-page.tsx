@@ -26,10 +26,14 @@ export function FoodCasePage({ slug, locale }: { slug: FoodCaseSlug; locale: "ru
         <p className="pf-kicker">{data.name[i]} / {data.tags}</p>
         <h1>{data.title[i]}</h1>
         <p className="pf-case-summary">{data.summary[i]}</p>
+        <p className="pf-agency-credit">
+          {i
+            ? "Created at V Agency, a marketing agency."
+            : "Проект выполнен в маркетинговом агентстве V Agency."}
+        </p>
       </section>
       <div className="pf-shell pf-food-film">
-        {/* eslint-disable-next-line jsx-a11y/media-has-caption -- Supplied portfolio films; a written description is provided beside each video. */}
-        <video controls playsInline preload="none" poster={`/work/${slug}/cover.jpg`} width={data.width} height={data.height} aria-label={data.title[i]}>
+        <video autoPlay controls muted loop playsInline preload="metadata" poster={`/work/${slug}/cover.jpg`} width={data.width} height={data.height} aria-label={data.title[i]}>
           <source src={`/work/${slug}/film.mp4`} type="video/mp4" />
           <a href={`/work/${slug}/film.mp4`}>{i ? "Download video" : "Скачать видео"}</a>
         </video>

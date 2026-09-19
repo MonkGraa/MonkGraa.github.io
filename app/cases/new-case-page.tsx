@@ -87,23 +87,6 @@ export function NewCasePage({
               alt={captions[2]}
             />
           </div>
-          <section className="pf-case-context pf-shell">
-            <h2>{t("Что я делал", "My contribution")}</h2>
-            <div>
-              <p>
-                {t(
-                  "Создавал рекламные креативы и посты для соцсетей, анимации, графику для статей, печатные материалы, обложки YouTube и презентации.",
-                  "I created advertising assets and social posts, animations, article graphics, print materials, YouTube covers and presentations.",
-                )}
-              </p>
-              <p>
-                {t(
-                  "В этой подборке рекламной и информационной графики я использовал тёмный фон, фиолетовые акценты и крупную типографику. Сложные темы объяснял с помощью схем.",
-                  "For this selection of advertising and information graphics, I used dark backgrounds, violet accents, bold typography and diagrams to keep the different formats consistent.",
-                )}
-              </p>
-            </div>
-          </section>
           <section className="pf-case-gallery pf-shell">
             <div className="pf-section-title">
               <h2>{t("Реклама и контент", "Advertising & content")}</h2>
@@ -140,6 +123,23 @@ export function NewCasePage({
             </div>
           </section>
           <section className="pf-case-context pf-shell">
+            <h2>{t("Что я делал", "My contribution")}</h2>
+            <div>
+              <p>
+                {t(
+                  "Создавал рекламные креативы и посты для соцсетей, анимации, графику для статей, печатные материалы, обложки YouTube и презентации.",
+                  "I created advertising assets and social posts, animations, article graphics, print materials, YouTube covers and presentations.",
+                )}
+              </p>
+              <p>
+                {t(
+                  "В этой подборке рекламной и информационной графики я использовал тёмный фон, фиолетовые акценты и крупную типографику. Сложные темы объяснял с помощью схем.",
+                  "For this selection of advertising and information graphics, I used dark backgrounds, violet accents, bold typography and diagrams to keep the different formats consistent.",
+                )}
+              </p>
+            </div>
+          </section>
+          <section className="pf-case-context pf-shell">
             <h2>
               {t("Задачи внутри бренда", "Working within the brand")}
             </h2>
@@ -155,10 +155,12 @@ export function NewCasePage({
         <>
           <div className="pf-shell pf-full-film">
             <video
+              autoPlay
               controls
               muted
+              loop
               playsInline
-              preload="none"
+              preload="metadata"
               poster="/work/saas/omindex-cover.jpg"
               aria-label={t(
                 "Продуктовый SaaS-ролик: полная версия",

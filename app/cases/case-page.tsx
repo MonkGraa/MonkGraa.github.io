@@ -34,32 +34,6 @@ export function CasePage({
         </h1>
         <p className="pf-case-summary">{format(project.summary)}</p>
       </section>
-      <div className="pf-shell">
-        <img
-          className="pf-existing-cover"
-          src={project.coverImage}
-          alt={project.coverAlt}
-          width="1900"
-          height="1100"
-        />
-      </div>
-      <section className="pf-case-context pf-shell">
-        <div>
-          <h2>{en ? "My contribution" : "Моя роль"}</h2>
-          <ul>
-            {project.role.map((role) => (
-              <li key={role}>{format(role)}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className="pf-kicker">
-            {en ? "Brief & approach" : "Задача и подход"}
-          </p>
-          <p>{format(project.challenge)}</p>
-          <p>{format(project.solution)}</p>
-        </div>
-      </section>
       <section
         className="pf-shell video-groups"
         id="videos"
@@ -114,6 +88,23 @@ export function CasePage({
             </div>
           </section>
         ))}
+      </section>
+      <section className="pf-case-context pf-shell">
+        <div>
+          <h2>{en ? "My contribution" : "Моя роль"}</h2>
+          <ul>
+            {project.role.map((role) => (
+              <li key={role}>{format(role)}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="pf-kicker">
+            {en ? "Brief & approach" : "Задача и подход"}
+          </p>
+          <p>{format(project.challenge)}</p>
+          <p>{format(project.solution)}</p>
+        </div>
       </section>
       <section className="pf-case-context pf-shell">
         <h2>{en ? "What was delivered" : "Что сделано"}</h2>

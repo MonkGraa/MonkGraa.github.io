@@ -25,6 +25,7 @@ for (const locale of ["ru", "en"]) {
     assert.match(html, /mailto:Artyom.bajutin@gmail.com/);
     assert.match(html, /Manrope/);
     assert.match(html, /Onest/);
+    assert.match(html, /logos\/v-agency\.svg/);
     assert.doesNotMatch(html, /<h[23][^>]*>(?:Фриланс|Freelance|V-agency)<\/h/);
     assert.doesNotMatch(html, /<iframe\b/);
   });
@@ -42,11 +43,17 @@ for (const locale of ["ru", "en"]) {
       if (slug === "saas") {
         assert.match(html, /<video[^>]*controls/);
         assert.match(html, /work\/saas\/film.mp4/);
-        assert.match(html, /preload="none"/);
+        assert.match(html, /autoPlay=""/);
+        assert.match(html, /loop=""/);
+        assert.match(html, /preload="metadata"/);
       } else if (["teremok", "blackbox", "mekong"].includes(slug)) {
         assert.match(html, /<video[^>]*controls/);
         assert.ok(html.includes(`/work/${slug}/film.mp4`));
         assert.ok(html.includes(`/work/${slug}/cover.jpg`));
+        assert.match(html, /autoPlay=""/);
+        assert.match(html, /muted=""/);
+        assert.match(html, /loop=""/);
+        assert.match(html, /V Agency/);
       } else if (slug === "alanbase") {
         for (let i = 1; i <= 9; i++)
           assert.ok(html.includes(`/work/alanbase/0${i}.webp`));
@@ -78,6 +85,21 @@ for (const locale of ["ru", "en"]) {
         assert.equal((html.match(/loop=""/gi) ?? []).length, 5);
         assert.equal((html.match(/playsinline=""/gi) ?? []).length, 5);
       }
+
+      if (["reloc", "funpay"].includes(slug)) {
+        assert.doesNotMatch(html, /pf-existing-cover/);
+        assert.ok(
+          html.indexOf('class="video-groups') <
+            html.indexOf('class="pf-case-context'),
+        );
+      }
+
+      const firstWork =
+        slug === "alanbase"
+          ? html.indexOf("/work/alanbase/01.webp")
+          : html.indexOf("<video");
+      assert.ok(firstWork !== -1);
+      assert.ok(firstWork < html.indexOf('class="pf-case-context'));
     });
   }
 }

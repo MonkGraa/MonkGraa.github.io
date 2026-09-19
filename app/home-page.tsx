@@ -71,7 +71,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       name: data.name[en ? 1 : 0],
       title: data.title[en ? 1 : 0],
       text: data.summary[en ? 1 : 0],
-      tags: data.tags,
+      tags: `${data.tags} · V Agency`,
       image: `/work/${slug}/cover.jpg`,
     })),
   ];
