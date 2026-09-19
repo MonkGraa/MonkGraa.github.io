@@ -7,14 +7,14 @@ export const relocCaseEn: PortfolioCase = {
   summary:
     "Instructional and advertising videos for a service that helps users buy currency and games in the restricted PlayStation Store.",
   metaDescription:
-    "Reloc — a case study by Artem Bazhutin: instructional videos, advertising, motion and 3D for a Telegram app.",
+    "Reloc: a case study by Artem Bazhutin: instructional videos, advertising, motion and 3D for a Telegram app.",
   coverAlt: "Reloc case study cover",
   period: "Freelance / 2024—2026",
   format: "Motion, 3D, editing",
   challenge:
-    "The service needed clear instructions so users could understand how to use it without getting lost between steps. The advertising videos also had to work in the fast-moving flow of Telegram channels.",
+    "The service needed step-by-step instructions that users could follow. The ads also needed to catch attention among other posts in Telegram channels.",
   solution:
-    "I used two different paces. The instructions guide users through each step, while the short ads use a quick opening, a 3D scene and a clear explanation of the service.",
+    "I gave the instructions a slower pace so users could follow each step. The ads move faster, with a short opening to catch attention and a 3D scene to explain the service.",
   role: [
     "Motion design and animation",
     "3D graphics",
@@ -24,17 +24,17 @@ export const relocCaseEn: PortfolioCase = {
     {
       number: "01",
       title: "Instructional videos",
-      text: "Step-by-step actions, prominent interface details and pacing that gives users time to follow each stage.",
+      text: "The videos show each action in order, with interface details large enough to see and time to follow each step.",
     },
     {
       number: "02",
       title: "Advertising videos",
-      text: "Short videos for Telegram channels with a quick opening, a clear offer and a recognisable visual.",
+      text: "Short videos for Telegram channels that get straight to the offer and use recognisable graphics.",
     },
     {
       number: "03",
       title: "3D graphics",
-      text: "Objects and scenes that give a digital service a more tangible visual form.",
+      text: "3D objects and scenes help viewers picture what the digital service does.",
     },
   ],
   videoGroups: [
@@ -77,7 +77,7 @@ export const funpayCaseEn: PortfolioCase = {
   summary:
     "A set of motion graphics for YouTube, including titles, transitions, intros and outros.",
   metaDescription:
-    "FunPay — a case study by Artem Bazhutin: titles, intros, outros, transitions and motion graphics for YouTube.",
+    "FunPay: a case study by Artem Bazhutin: titles, intros, outros, transitions and motion graphics for YouTube.",
   coverAlt: "FunPay case study cover",
   period: "Freelance / 2024—2026",
   format: "YouTube, motion",

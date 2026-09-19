@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HomePage } from "../home-page";
 
 const title = "Artem Bazhutin — graphic and motion designer";
-const description = "Portfolio of Artem Bazhutin: visual identity, graphic design, motion, 3D and video.";
+const description = "Graphic and motion design for social, advertising and content teams. OMIndex, Alanbase, Reloc and FunPay cases, product films and presentations.";
 
 export const metadata: Metadata = {
   title,
@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     title,
     description,
     locale: "en_US",
-    images: [{ url: "/og.png", width: 1731, height: 909, alt: "Artem Bazhutin — graphic and motion designer" }],
+    images: [{ url: "/og.png?v=20260919", width: 1730, height: 909, alt: "Artem Bazhutin — graphic and motion designer" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    images: ["/og.png?v=20260919"],
   },
 };
 

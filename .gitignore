@@ -41,3 +41,8 @@ yarn-error.log*
 /outputs/
 /work/
 /.tools/
+
+# Local source material and generated recruiter documents
+/workspace/
+/tmp/
+/output/
